@@ -1,0 +1,39 @@
+{
+  "id": "c8ce72f3-cf94-451a-dc15-c3ab3446bd56",
+  "name": "Postman Globals",
+  "values": [
+    {
+      "key": "echo_digest_realm",
+      "value": "Users",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "echo_digest_nonce",
+      "value": "7Cb3fE2cfEr9EaTOcBLdKTne8WmHEwmE",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "user_Id",
+      "value": "10004",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "province_Id",
+      "value": "11",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "city_Id",
+      "value": "1201",
+      "enabled": true,
+      "type": "text"
+    }
+  ],
+  "_postman_variable_scope": "globals",
+  "_postman_exported_at": "2018-01-20T09:37:54.188Z",
+  "_postman_exported_using": "Postman/5.5.0"
+}
