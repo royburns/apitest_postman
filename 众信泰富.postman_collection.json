@@ -1,0 +1,5892 @@
+{
+	"info": {
+		"name": "众信泰富",
+		"_postman_id": "af7330b2-7117-d087-d23a-c4620a09809a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "APP首页",
+			"description": "Folder for init",
+			"item": [
+				{
+					"name": "首页",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4866c22-8fa0-4dc0-9120-966f80ac727f",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/homepage/getIndex",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"homepage",
+								"getIndex"
+							]
+						},
+						"description": "@developer 谭博文<br/>返回广告"
+					},
+					"response": []
+				},
+				{
+					"name": "首页广告",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/init/adv",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"init",
+								"adv"
+							]
+						},
+						"description": "@developer 谭博文<br/>返回广告"
+					},
+					"response": []
+				},
+				{
+					"name": "首页app配置",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/init/init",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"init",
+								"init"
+							]
+						},
+						"description": "@developer 谭博文<br/>返回app配置信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "aftermarket",
+			"description": "Folder for aftermarket",
+			"item": [
+				{
+					"name": "申请售后",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/aftermarket/applyForSale?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aftermarket",
+								"applyForSale"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟<br/>需要传递公参<br>返回空值申请失败"
+					},
+					"response": []
+				},
+				{
+					"name": "根据订单ID查询售后详情",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/aftermarket/getAftermarketInfo?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&id={{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"aftermarket",
+								"getAftermarketInfo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								},
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "boss",
+			"description": "Folder for boss",
+			"item": [
+				{
+					"name": "自动登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/boss/autologin?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"autologin"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/>返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "老板添加店长",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/boss/bossAddEmployee?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"bossAddEmployee"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，添加员工的信息<br/>返回店员List"
+					},
+					"response": []
+				},
+				{
+					"name": "老板删除店长",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "userId"
+						},
+						"url": {
+							"raw": "{{url}}/boss/bossDisableEmployee?lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"bossDisableEmployee"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参和被禁用员工ID"
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/boss/changePassword?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参,用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "个人信息(返回数据和登录返回数据相同)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/boss/info?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"info"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/> 返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/boss/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "登出",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/boss/logout?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参"
+					},
+					"response": []
+				},
+				{
+					"name": "使用验证码登录(快捷登录)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/boss/smsCodeLogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"smsCodeLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新个人信息(性别,昵称，头像)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/boss/updateinfo?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"boss",
+								"updateinfo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，用户信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"description": "Folder for cart",
+			"item": [
+				{
+					"name": "加入购物车",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "cartItemJoinVo"
+						},
+						"url": {
+							"raw": "{{url}}/cart/addShopCartItem",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"addShopCartItem"
+							]
+						},
+						"description": "@developer 邹宇豪<br/>加入购物车(半完成,待打通其他服务)"
+					},
+					"response": []
+				},
+				{
+					"name": "删除购物车商品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "productDelReqVo"
+						},
+						"url": {
+							"raw": "{{url}}/cart/deleteShopCarItem",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"deleteShopCarItem"
+							]
+						},
+						"description": "@developer 邹宇豪<br/>删除购物车整个门店商品或者单个商品(半完成,待打通其他接口)"
+					},
+					"response": []
+				},
+				{
+					"name": "qureyAddress",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/cart/queryAddress?userId={{userId}}&addressId={{addressId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"queryAddress"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "addressId",
+									"value": "{{addressId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取购物车详细",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/cart/queryShopCart?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"queryShopCart"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "@developer 邹宇豪<br/>获取购物车详细(半完成,待打通其他接口)"
+					},
+					"response": []
+				},
+				{
+					"name": "设置购物车选中商品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "shopCartItemJoinVo"
+						},
+						"url": {
+							"raw": "{{url}}/cart/selectedItem",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"selectedItem"
+							]
+						},
+						"description": "@developer 邹宇豪<br/>设置购物车选中商品(半完成,待打通其他接口)"
+					},
+					"response": []
+				},
+				{
+					"name": "updateItemCount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "cartItemJoinVo"
+						},
+						"url": {
+							"raw": "{{url}}/cart/updateItemCount",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"cart",
+								"updateItemCount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"description": "Folder for comment",
+			"item": [
+				{
+					"name": "根据商品Id查询用户评论",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/comment/findComment?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&itemId={{itemId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comment",
+								"findComment"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								},
+								{
+									"key": "itemId",
+									"value": "{{itemId}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				},
+				{
+					"name": "根据商品Id查询最新用户评论",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/comment/findNew?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&itemId={{itemId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comment",
+								"findNew"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								},
+								{
+									"key": "itemId",
+									"value": "{{itemId}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				},
+				{
+					"name": "用户对指定商品评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "req"
+						},
+						"url": {
+							"raw": "{{url}}/comment/save?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comment",
+								"save"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"description": "Folder for comments",
+			"item": [
+				{
+					"name": "根据商品获取评论(支持分页)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/comments/shop/:id?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&page={{page}}&rows={{rows}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"shop",
+								":id"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "rows",
+									"value": "{{rows}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						},
+						"description": "@developer 杨宇"
+					},
+					"response": []
+				},
+				{
+					"name": "根据商品添加评论",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "comment"
+						},
+						"url": {
+							"raw": "{{url}}/comments/shop/:id?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"comments",
+								"shop",
+								":id"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						},
+						"description": "@developer 杨宇"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "content",
+			"description": "Folder for content",
+			"item": [
+				{
+					"name": "保存意见反馈信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/content/feedback/save?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"content",
+								"feedback",
+								"save"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coupon",
+			"description": "Folder for coupon",
+			"item": [
+				{
+					"name": "兑换优惠券",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/coupon/convertCoupon?userId={{userId}}&convertId={{convertId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"coupon",
+								"convertCoupon"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "convertId",
+									"value": "{{convertId}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "创建优惠券",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/coupon/create?products={{products}}&name={{name}}&type={{type}}&limitSum={{limitSum}}&floorSill={{floorSill}}&denomination={{denomination}}&des={{des}}&reKey={{reKey}}&openRegisTime={{openRegisTime}}&closeRegisTime={{closeRegisTime}}&effectiveTime={{effectiveTime}}&loseTime={{loseTime}}&menu={{menu}}&item={{item}}&openRegisTimeS={{openRegisTimeS}}&closeRegisTimeS={{closeRegisTimeS}}&effectiveTimeS={{effectiveTimeS}}&loseTimeS={{loseTimeS}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"coupon",
+								"create"
+							],
+							"query": [
+								{
+									"key": "products",
+									"value": "{{products}}"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "type",
+									"value": "{{type}}"
+								},
+								{
+									"key": "limitSum",
+									"value": "{{limitSum}}"
+								},
+								{
+									"key": "floorSill",
+									"value": "{{floorSill}}"
+								},
+								{
+									"key": "denomination",
+									"value": "{{denomination}}"
+								},
+								{
+									"key": "des",
+									"value": "{{des}}"
+								},
+								{
+									"key": "reKey",
+									"value": "{{reKey}}"
+								},
+								{
+									"key": "openRegisTime",
+									"value": "{{openRegisTime}}"
+								},
+								{
+									"key": "closeRegisTime",
+									"value": "{{closeRegisTime}}"
+								},
+								{
+									"key": "effectiveTime",
+									"value": "{{effectiveTime}}"
+								},
+								{
+									"key": "loseTime",
+									"value": "{{loseTime}}"
+								},
+								{
+									"key": "menu",
+									"value": "{{menu}}"
+								},
+								{
+									"key": "item",
+									"value": "{{item}}"
+								},
+								{
+									"key": "openRegisTimeS",
+									"value": "{{openRegisTimeS}}"
+								},
+								{
+									"key": "closeRegisTimeS",
+									"value": "{{closeRegisTimeS}}"
+								},
+								{
+									"key": "effectiveTimeS",
+									"value": "{{effectiveTimeS}}"
+								},
+								{
+									"key": "loseTimeS",
+									"value": "{{loseTimeS}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "中台优惠券列表",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "couponQueryReqVO"
+						},
+						"url": {
+							"raw": "{{url}}/coupon/coupon/getCouponList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"coupon",
+								"getCouponList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "我的优惠券",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/coupon/getCouponPkg?userId={{userId}}&status={{status}}&page={{page}}&pageSize={{pageSize}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"coupon",
+								"getCouponPkg"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "status",
+									"value": "{{status}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{{pageSize}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "查询优惠券",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/coupon/query?page={{page}}&size={{size}}&code={{code}}&name={{name}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"coupon",
+								"query"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "size",
+									"value": "{{size}}"
+								},
+								{
+									"key": "code",
+									"value": "{{code}}"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "下订单可用优惠券",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/support/confirmOrder?header.os={{header.os}}&header.ver={{header.ver}}&info.loginToken={{info.loginToken}}&info.userId={{info.userId}}&info.gpsArea={{info.gpsArea}}&productIds={{productIds}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"support",
+								"confirmOrder"
+							],
+							"query": [
+								{
+									"key": "header.os",
+									"value": "{{header.os}}"
+								},
+								{
+									"key": "header.ver",
+									"value": "{{header.ver}}"
+								},
+								{
+									"key": "info.loginToken",
+									"value": "{{info.loginToken}}"
+								},
+								{
+									"key": "info.userId",
+									"value": "{{info.userId}}"
+								},
+								{
+									"key": "info.gpsArea",
+									"value": "{{info.gpsArea}}"
+								},
+								{
+									"key": "productIds",
+									"value": "{{productIds}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "优惠券专区",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/coupon/support/sales",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"coupon",
+								"support",
+								"sales"
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "depot",
+			"description": "Folder for depot",
+			"item": [
+				{
+					"name": "根据老板id查询所有的门店信息(老板端)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/depot/findByBossId?bossId={{bossId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"depot",
+								"findByBossId"
+							],
+							"query": [
+								{
+									"key": "bossId",
+									"value": "{{bossId}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "搜索附近门店",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/depot/findNearDepot?userId={{userId}}&lat={{lat}}&lon={{lon}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"depot",
+								"findNearDepot"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定门店编码的门店",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/depot/getByDepotCodeFRdb?depotCode={{depotCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"depot",
+								"getByDepotCodeFRdb"
+							],
+							"query": [
+								{
+									"key": "depotCode",
+									"value": "{{depotCode}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favourite",
+			"description": "Folder for favourite",
+			"item": [
+				{
+					"name": "清空户用户收藏商品",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/cleanMemberFavouriteProduct?memberId={{memberId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"cleanMemberFavouriteProduct"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>测试接口ok"
+					},
+					"response": []
+				},
+				{
+					"name": "批量删除商品  这里是逻辑删除不是物理删除只是更改个状态 传入多个参数请用逗号隔开 例如c3306,c3307",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/deleteProducts?memberId={{memberId}}&productCodes={{productCodes}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"deleteProducts"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								},
+								{
+									"key": "productCodes",
+									"value": "{{productCodes}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>测试接口ok"
+					},
+					"response": []
+				},
+				{
+					"name": "反转控制传入会员id和商品编码立即收藏该商品,在传入一次就取消收藏 先持久化到数据库在同步到redis",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/favouriteProduct?memberId={{memberId}}&productCode={{productCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"favouriteProduct"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								},
+								{
+									"key": "productCode",
+									"value": "{{productCode}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>接口测试ok"
+					},
+					"response": []
+				},
+				{
+					"name": "查看所有已收藏的商品对象--数据库查询--仅供测试使用-不支持分页功能",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/findByMemberFavouriteProduct?memberId={{memberId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"findByMemberFavouriteProduct"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>接口测试ok"
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询已经收藏的商品对象--redis查询 第一个参数传0代表第一页 第二个参数代表每页显示多少条数据",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/findByMemberFavouriteProductPage?memberId={{memberId}}&page={{page}}&size={{size}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"findByMemberFavouriteProductPage"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								},
+								{
+									"key": "page",
+									"value": "{{page}}"
+								},
+								{
+									"key": "size",
+									"value": "{{size}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>接口测试ok"
+					},
+					"response": []
+				},
+				{
+					"name": "查询总共搜藏了多少商品--redis查询",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/favourite/findByMemberFavouriteProductTotals?memberId={{memberId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"favourite",
+								"findByMemberFavouriteProductTotals"
+							],
+							"query": [
+								{
+									"key": "memberId",
+									"value": "{{memberId}}"
+								}
+							]
+						},
+						"description": "@developer 王杰<br/>测试接口ok"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "geo",
+			"description": "Folder for geo",
+			"item": [
+				{
+					"name": "所有省的列表",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d3f8a6bd-26a5-4725-9585-9a06b378517d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/geo/findAllProvince",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"geo",
+								"findAllProvince"
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "根据省id 获取该省所有市的",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c6cfdcb7-fa4c-4c2a-8ecd-3d6c5018273d",
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"city_Id\", \"11\");"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ea7e8fa2-68d6-464a-9011-88cdf4e4bf78",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://10.127.10.241:17222/geo/findCitiesByProvinceId?provinceId={{province_Id}}",
+							"protocol": "http",
+							"host": [
+								"10",
+								"127",
+								"10",
+								"241"
+							],
+							"port": "17222",
+							"path": [
+								"geo",
+								"findCitiesByProvinceId"
+							],
+							"query": [
+								{
+									"key": "provinceId",
+									"value": "{{province_Id}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "根据市id获取该市所有的区",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a37b019-0ccc-4ec5-9275-673461e67650",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a71aa792-5d68-4e71-8069-a0c8a2964451",
+								"type": "text/javascript",
+								"exec": [
+									"pm.globals.set(\"city_Id\", \"1201;\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cityId\": 1101\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/geo/findDistrictsByCityId?cityId={{city_Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"geo",
+								"findDistrictsByCityId"
+							],
+							"query": [
+								{
+									"key": "cityId",
+									"value": "{{city_Id}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventory",
+			"description": "Folder for inventory",
+			"item": [
+				{
+					"name": "根据输入的查询信息返回盘点list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "queryVo"
+						},
+						"url": {
+							"raw": "{{url}}/inventory/soa/inventoryService/findAll?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"inventory",
+								"soa",
+								"inventoryService",
+								"findAll"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 黄绪明"
+					},
+					"response": []
+				},
+				{
+					"name": "更新盘点状态",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/inventory/soa/inventoryService/updateStatus?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&id={{id}}&status={{status}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"inventory",
+								"soa",
+								"inventoryService",
+								"updateStatus"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								},
+								{
+									"key": "id",
+									"value": "{{id}}"
+								},
+								{
+									"key": "status",
+									"value": "{{status}}"
+								}
+							]
+						},
+						"description": "@developer 黄绪明"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventoryDetail",
+			"description": "Folder for inventoryDetail",
+			"item": [
+				{
+					"name": "根据盘点编码,获取盘点详情",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "queryVo"
+						},
+						"url": {
+							"raw": "{{url}}/inventoryDetail/soa/inventoryService/findAll?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"inventoryDetail",
+								"soa",
+								"inventoryService",
+								"findAll"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 黄绪明"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoice",
+			"description": "Folder for invoice",
+			"item": [
+				{
+					"name": "查询发票",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/invoice/getAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice",
+								"getAll"
+							]
+						},
+						"description": "查询所有发票"
+					},
+					"response": []
+				},
+				{
+					"name": "查询发票",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/invoice/getOne?id={{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoice",
+								"getOne"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						},
+						"description": "根据id查询发票信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "invoiceHeader",
+			"description": "Folder for invoiceHeader",
+			"item": [
+				{
+					"name": "查询发票常用信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/invoiceHeader/getInvoiceHeader?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"invoiceHeader",
+								"getInvoiceHeader"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "根据用户来查询发票常用信息列表"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "isNeedUpgrade",
+			"description": "Folder for isNeedUpgrade",
+			"item": [
+				{
+					"name": "检查当前APP是否需要升级",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/isNeedUpgrade?ver=0.0.0&os={{os}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"isNeedUpgrade"
+							],
+							"query": [
+								{
+									"key": "ver",
+									"value": "0.0.0"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 陈文章<br/>返回内容为空则不需要升级"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "management",
+			"description": "Folder for management",
+			"item": [
+				{
+					"name": "添加我要合作信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/management/cooperate/save?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"management",
+								"cooperate",
+								"save"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"description": "Folder for order",
+			"item": [
+				{
+					"name": "创建待支付订单",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVO"
+						},
+						"url": {
+							"raw": "{{url}}/order/createOrder?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"order",
+								"createOrder"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "@developer 张涛<br/>状态：未开始<br/>应用场景：订单结算页提交订单，生成待支付订单，跳转到订单结算页"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "origin",
+			"description": "Folder for origin",
+			"item": [
+				{
+					"name": "获取商品溯源信息",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/origin/info?商品id={{商品id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"origin",
+								"info"
+							],
+							"query": [
+								{
+									"key": "商品id",
+									"value": "{{商品id}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"description": "Folder for product",
+			"item": [
+				{
+					"name": "获取分类内容",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product/getItemById?item_id={{item_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getItemById"
+							],
+							"query": [
+								{
+									"key": "item_id",
+									"value": "{{item_id}}"
+								}
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "推荐购买",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product/getPrefProduct?uid={{uid}}&lat={{lat}}&lon={{lon}}&cityId={{cityId}}&provinceId={{provinceId}}&depotId={{depotId}}&depotCode={{depotCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getPrefProduct"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "{{uid}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "cityId",
+									"value": "{{cityId}}"
+								},
+								{
+									"key": "provinceId",
+									"value": "{{provinceId}}"
+								},
+								{
+									"key": "depotId",
+									"value": "{{depotId}}"
+								},
+								{
+									"key": "depotCode",
+									"value": "{{depotCode}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "商品详情",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "select"
+						},
+						"url": {
+							"raw": "{{url}}/product/getProductDetails",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getProductDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "猜你喜欢",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product/getSuggestCart?uid={{uid}}&lat={{lat}}&lon={{lon}}&cityId={{cityId}}&provinceId={{provinceId}}&depotId={{depotId}}&depotCode={{depotCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getSuggestCart"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "{{uid}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "cityId",
+									"value": "{{cityId}}"
+								},
+								{
+									"key": "provinceId",
+									"value": "{{provinceId}}"
+								},
+								{
+									"key": "depotId",
+									"value": "{{depotId}}"
+								},
+								{
+									"key": "depotCode",
+									"value": "{{depotCode}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取菜单分类",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product/getSuggestProduct",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getSuggestProduct"
+							]
+						},
+						"description": "@developer 谢宇"
+					},
+					"response": []
+				},
+				{
+					"name": "常购清单",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/product/getUsuallyBuy?uid={{uid}}&lat={{lat}}&lon={{lon}}&cityId={{cityId}}&provinceId={{provinceId}}&depotId={{depotId}}&depotCode={{depotCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"product",
+								"getUsuallyBuy"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "{{uid}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "cityId",
+									"value": "{{cityId}}"
+								},
+								{
+									"key": "provinceId",
+									"value": "{{provinceId}}"
+								},
+								{
+									"key": "depotId",
+									"value": "{{depotId}}"
+								},
+								{
+									"key": "depotCode",
+									"value": "{{depotCode}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shop",
+			"description": "Folder for shop",
+			"item": [
+				{
+					"name": "根据用户id获取门店信息",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/shop/getShopByMemberId?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shop",
+								"getShopByMemberId"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "根据门店id获取门店信息",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/shop/getShopByShopId?id={{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shop",
+								"getShopByShopId"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "提交/更新门店审核信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/shop/submitShop?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shop",
+								"submitShop"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shopManager",
+			"description": "Folder for shopManager",
+			"item": [
+				{
+					"name": "自动登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/autologin?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"autologin"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/>返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/changePassword?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参,用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "个人信息(返回数据和登录返回数据相同)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/info?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"info"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/> 返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/login?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"login"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "登出",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/logout?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参"
+					},
+					"response": []
+				},
+				{
+					"name": "使用验证码登录(快捷登录)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/smsCodeLogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"smsCodeLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新个人信息(性别,昵称，头像)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/shopManager/updateinfo?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shopManager",
+								"updateinfo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，用户信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sms",
+			"description": "Folder for sms",
+			"item": [
+				{
+					"name": "给指定手机号发短信",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/sms/sendToMobile?mobile={{mobile}}&type={{type}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sms",
+								"sendToMobile"
+							],
+							"query": [
+								{
+									"key": "mobile",
+									"value": "{{mobile}}"
+								},
+								{
+									"key": "type",
+									"value": "{{type}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "校验短信验证码（校验通过后删除）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/sms/validateAndDisableSMSCode?mobile={{mobile}}&type={{type}}&smsCode={{smsCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sms",
+								"validateAndDisableSMSCode"
+							],
+							"query": [
+								{
+									"key": "mobile",
+									"value": "{{mobile}}"
+								},
+								{
+									"key": "type",
+									"value": "{{type}}"
+								},
+								{
+									"key": "smsCode",
+									"value": "{{smsCode}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				},
+				{
+					"name": "校验短信验证码（只校验,不删除）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/sms/validateSMSCode?mobile={{mobile}}&type={{type}}&smsCode={{smsCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sms",
+								"validateSMSCode"
+							],
+							"query": [
+								{
+									"key": "mobile",
+									"value": "{{mobile}}"
+								},
+								{
+									"key": "type",
+									"value": "{{type}}"
+								},
+								{
+									"key": "smsCode",
+									"value": "{{smsCode}}"
+								}
+							]
+						},
+						"description": "@developer 李宁"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "store",
+			"description": "Folder for store",
+			"item": [
+				{
+					"name": "删除收货地址",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/store/address/new/delAddress?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"address",
+								"new",
+								"delAddress"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，被删地址信息<br/>返回门店信息List"
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有的收货地址",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/store/address/new/getAllAddress?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"address",
+								"new",
+								"getAllAddress"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/>返回门店地址信息List"
+					},
+					"response": []
+				},
+				{
+					"name": "保存或者更新地址",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/store/address/new/saveOrUpdate?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"address",
+								"new",
+								"saveOrUpdate"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，修改的地址信息<br/>返回门店地址信息List"
+					},
+					"response": []
+				},
+				{
+					"name": "设置默认地址",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/store/address/new/setDefaultAddress?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"address",
+								"new",
+								"setDefaultAddress"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，门店地址信息"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"description": "Folder for users",
+			"item": [
+				{
+					"name": "密码登录-成功",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b34171d8-0258-4a2a-b4ce-2174077542f0",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"console.log(pm.environment.get(\"user_Id\"));",
+									"pm.environment.set(\"user_Id\", jsonData.data.userId);",
+									"console.log(pm.environment.get(\"user_Id\"));",
+									"console.log('finish!');",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"18160038933\",\r\n  \"password\": \"123456\",\r\n  \"pushToken\": \"Test123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录-用户名不存在",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cde53ced-89fd-4776-bffe-f1b3595cc6ee",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(5500);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"用户不存在\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"bucunzai\",\r\n  \"password\": \"123456\",\r\n  \"pushToken\": \"Test123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录-密码错误",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0dfc165e-664d-47ba-8563-c788cb125710",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(5506);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"密码错误\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"18160038933\",\r\n  \"password\": \"mimacuowu\",\r\n  \"pushToken\": \"Test123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录-登录账号不能为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4fdb620-4a33-49a0-a948-cae6fdc9d6de",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(5519);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"登录账号不能为空,请输入账号\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"\",\r\n  \"password\": \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "密码登录-密码不能为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d8aa37c2-dc62-4c23-8c96-f60bab50c344",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(5520);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"密码不能为空,请输入密码\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"account\": \"admin\",\r\n  \"password\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "@developer 林庚（完成）<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "使用验证码登录(快捷登录/注册)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/users/smsCodeLogin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"smsCodeLogin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/changePassword?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"changePassword"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}",
+									"equals": true
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}",
+									"equals": true
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}",
+									"equals": true
+								},
+								{
+									"key": "os",
+									"value": "{{os}}",
+									"equals": true
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}",
+									"equals": true
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}",
+									"equals": true
+								},
+								{
+									"key": "version",
+									"value": "{{version}}",
+									"equals": true
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}",
+									"equals": true
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}",
+									"equals": true
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}",
+									"equals": true
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参,用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "自动登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/autologin?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"autologin"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/>返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "绑定手机号（只有微信注册且没有绑定过手机号）",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/users/bindingMobile?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"bindingMobile"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参,用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "个人信息(返回数据和登录返回数据相同)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd664e5c-0fcb-4245-8e88-503f383c9b3e",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/info?userId={{user_Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"info"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{user_Id}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/> 返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "个人信息-用户不存在",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29b8a139-d3ef-448b-8b79-834e9c5d7038",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(5500);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"用户不存在\");",
+									"});",
+									"",
+									"",
+									"// console.log(pm.environment.get(\"userId\"));",
+									"// //var oldUserId = pm.environment.get(\"userId\");",
+									"// pm.environment.set(\"userId\", oldUserId);",
+									"// console.log(pm.environment.get(\"userId\"));",
+									"// console.log('finish!');",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "53a8070e-2fca-4269-bd6c-53d736a4ab6e",
+								"type": "text/javascript",
+								"exec": [
+									"",
+									"// console.log(pm.environment.get(\"user_Id\"));",
+									"// var oldUserId = pm.environment.get(\"userId\");",
+									"// pm.environment.set(\"userId\", 13798385767);",
+									"// console.log(pm.environment.get(\"userId\"));",
+									"// console.log('finish!');",
+									"// userId = 13798385767;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/info?userId=13798385767",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"info"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "13798385767",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参<br/> 返回用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "根据用户id获取银行卡信息",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e0e4a2d9-181b-46ba-87b7-06d68050fead",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "647b862b-6651-43e3-97f9-3839de0e5286",
+								"type": "text/javascript",
+								"exec": [
+									"userId = pm.environment.get(\"user_Id\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/bankcardinfo?userId={{user_Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"bankcardinfo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{user_Id}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 陈文樟"
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户所有发票信息",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "998e3f1a-82f2-4392-880f-5833193c1227",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "userId",
+								"value": "{{user_Id}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/invoice/getInvoice?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&invoiceAmount={{invoiceAmount}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"invoice",
+								"getInvoice"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}",
+									"equals": true
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}",
+									"equals": true
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}",
+									"equals": true
+								},
+								{
+									"key": "os",
+									"value": "{{os}}",
+									"equals": true
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}",
+									"equals": true
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}",
+									"equals": true
+								},
+								{
+									"key": "version",
+									"value": "{{version}}",
+									"equals": true
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}",
+									"equals": true
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}",
+									"equals": true
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}",
+									"equals": true
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}",
+									"equals": true
+								},
+								{
+									"key": "invoiceAmount",
+									"value": "{{invoiceAmount}}",
+									"equals": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询银行码表",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e84c041-39aa-42b7-8bb7-2aa967426dd5",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/getBankCode",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"getBankCode"
+							]
+						},
+						"description": "@developer 陈文樟<br/>"
+					},
+					"response": []
+				},
+				{
+					"name": "审核银行卡",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/auditMemberBankCardVo?userId={{userId}}&cardholder={{cardholder}}&bankCode={{bankCode}}&cardType={{cardType}}&bank={{bank}}&mobile={{mobile}}&smsCode={{smsCode}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"auditMemberBankCardVo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}",
+									"equals": true
+								},
+								{
+									"key": "cardholder",
+									"value": "{{cardholder}}",
+									"equals": true
+								},
+								{
+									"key": "bankCode",
+									"value": "{{bankCode}}",
+									"equals": true
+								},
+								{
+									"key": "cardType",
+									"value": "{{cardType}}",
+									"equals": true
+								},
+								{
+									"key": "bank",
+									"value": "{{bank}}",
+									"equals": true
+								},
+								{
+									"key": "mobile",
+									"value": "{{mobile}}",
+									"equals": true
+								},
+								{
+									"key": "smsCode",
+									"value": "{{smsCode}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 陈文樟<br/>只需要传持卡人，卡号以及用户id"
+					},
+					"response": []
+				},
+				{
+					"name": "更新银行卡信息",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/users/updatebankcard?userId={{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"updatebankcard"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "@developer 陈文樟<br/>传递公参<br>返回null表示失败"
+					},
+					"response": []
+				},
+				{
+					"name": "更新个人信息(性别,昵称，头像)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/users/updateinfo?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"updateinfo"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参，用户信息"
+					},
+					"response": []
+				},
+				{
+					"name": "保存或者新增发票",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "reqVo"
+						},
+						"url": {
+							"raw": "{{url}}/users/invoice/save?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"invoice",
+								"save"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{userId}}"
+								},
+								{
+									"key": "lat",
+									"value": "{{lat}}"
+								},
+								{
+									"key": "lon",
+									"value": "{{lon}}"
+								},
+								{
+									"key": "os",
+									"value": "{{os}}"
+								},
+								{
+									"key": "osVersion",
+									"value": "{{osVersion}}"
+								},
+								{
+									"key": "deviceId",
+									"value": "{{deviceId}}"
+								},
+								{
+									"key": "version",
+									"value": "{{version}}"
+								},
+								{
+									"key": "userAgent",
+									"value": "{{userAgent}}"
+								},
+								{
+									"key": "apn",
+									"value": "{{apn}}"
+								},
+								{
+									"key": "sign",
+									"value": "{{sign}}"
+								},
+								{
+									"key": "partner",
+									"value": "{{partner}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登出",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83797775-2a73-4e63-996c-ea17e3f84ffb",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/logout?userId={{user_Id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "{{user_Id}}",
+									"equals": true
+								}
+							]
+						},
+						"description": "@developer 林庚<br/>需要公参"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"exec": [
+					""
+				],
+				"id": "f24f715a-4c56-419c-a0dc-351d751a23d9",
+				"type": "text/javascript"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"exec": [
+					""
+				],
+				"id": "1425c5e9-d13a-4ab7-b0b6-2b6e103667be",
+				"type": "text/javascript"
+			}
+		}
+	]
+}
