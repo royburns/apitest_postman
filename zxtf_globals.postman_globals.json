@@ -1,5 +1,5 @@
 {
-  "id": "c8ce72f3-cf94-451a-dc15-c3ab3446bd56",
+  "id": "560c4a0c-36d6-3edf-2d6a-1aae084edd11",
   "name": "Postman Globals",
   "values": [
     {
@@ -15,14 +15,50 @@
       "type": "text"
     },
     {
+      "key": "account_001",
+      "value": "17341319131",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "password_001",
+      "value": "123456",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "account_002",
+      "value": "18202849780",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "password_002",
+      "value": "123456",
+      "enabled": true,
+      "type": "text"
+    },
+    {
       "key": "user_Id",
-      "value": "10004",
+      "value": 10036,
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "province_Name",
+      "value": "北京",
       "enabled": true,
       "type": "text"
     },
     {
       "key": "province_Id",
-      "value": "11",
+      "value": 11,
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "city_Name",
+      "value": "北京市",
       "enabled": true,
       "type": "text"
     },
@@ -31,9 +67,21 @@
       "value": "1201",
       "enabled": true,
       "type": "text"
+    },
+    {
+      "key": "district_Name",
+      "value": "和平区",
+      "enabled": true,
+      "type": "text"
+    },
+    {
+      "key": "district_Id",
+      "value": 120101,
+      "enabled": true,
+      "type": "text"
     }
   ],
   "_postman_variable_scope": "globals",
-  "_postman_exported_at": "2018-01-20T09:37:54.188Z",
-  "_postman_exported_using": "Postman/5.5.0"
+  "_postman_exported_at": "2018-02-02T10:23:00.099Z",
+  "_postman_exported_using": "Postman/5.5.2"
 }

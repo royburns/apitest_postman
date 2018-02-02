@@ -7,129 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "APP首页",
-			"description": "Folder for init",
-			"item": [
-				{
-					"name": "首页",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "b4866c22-8fa0-4dc0-9120-966f80ac727f",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Body is correct\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(0);",
-									"});",
-									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"success\");",
-									"});",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "{{url}}/homepage/getIndex",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"homepage",
-								"getIndex"
-							]
-						},
-						"description": "@developer 谭博文<br/>返回广告"
-					},
-					"response": []
-				},
-				{
-					"name": "首页广告",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/init/adv",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"init",
-								"adv"
-							]
-						},
-						"description": "@developer 谭博文<br/>返回广告"
-					},
-					"response": []
-				},
-				{
-					"name": "首页app配置",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/init/init",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"init",
-								"init"
-							]
-						},
-						"description": "@developer 谭博文<br/>返回app配置信息"
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "aftermarket",
 			"description": "Folder for aftermarket",
 			"item": [
@@ -290,6 +167,102 @@
 							]
 						},
 						"description": "@developer 陈文樟"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "appAd",
+			"description": "Folder for appAd",
+			"item": [
+				{
+					"name": "APP广告页(启动页)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/appAd/soa/appAdService/findAll",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"appAd",
+								"soa",
+								"appAdService",
+								"findAll"
+							]
+						},
+						"description": "@developer 黄绪明<br/>返回App首页数据"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APP首页",
+			"description": "Folder for init",
+			"item": [
+				{
+					"name": "首页",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4866c22-8fa0-4dc0-9120-966f80ac727f",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/homepage/getIndex",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"homepage",
+								"getIndex"
+							]
+						},
+						"description": "@developer 谭博文<br/>返回广告"
 					},
 					"response": []
 				}
@@ -1113,6 +1086,75 @@
 								"updateItemCount"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"description": "",
+			"item": [
+				{
+					"name": "获取树形接口的分类",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eb1cf656-d4b5-4530-8340-28b4e8115056",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body is correct\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.code).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"success\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://inttestgw.meiweigx.com/category/tree/:level",
+							"protocol": "http",
+							"host": [
+								"inttestgw",
+								"meiweigx",
+								"com"
+							],
+							"path": [
+								"category",
+								"tree",
+								":level"
+							],
+							"variable": [
+								{
+									"key": "level",
+									"value": "1"
+								}
+							]
+						},
+						"description": "@developer 杨宇"
 					},
 					"response": []
 				}
@@ -2405,7 +2447,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d3f8a6bd-26a5-4725-9585-9a06b378517d",
+								"id": "3ca2dbed-7c47-4e49-8cd7-16bad970e415",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -2420,6 +2462,29 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"success\");",
 									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);",
+									"var provinceData = jsonData.data;",
+									"console.log(provinceData);",
+									"var i = 0, len = provinceData.length;",
+									"// for (; i < len; ) {",
+									"//     if()",
+									"// }",
+									"console.log(len);",
+									"console.log(pm.globals.get(\"province_Id\"));",
+									"if (len > 0){",
+									"    if (provinceData[0].name == pm.globals.get(\"province_Name\")){",
+									"        // province_Id = provinceData[0].id",
+									"        pm.globals.set(\"province_Id\", provinceData[0].id);",
+									"    }",
+									"}",
+									"console.log(pm.globals.get(\"province_Id\"));",
+									"// console.log(pm.environment.get(\"user_Id\"));",
+									"// pm.environment.set(\"user_Id\", jsonData.data.userId);",
+									"// console.log(pm.environment.get(\"user_Id\"));",
+									"console.log('finish!');",
+									"",
 									""
 								]
 							}
@@ -2458,17 +2523,17 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "c6cfdcb7-fa4c-4c2a-8ecd-3d6c5018273d",
+								"id": "8d9892cb-3fce-4613-820e-1b27bcec05d6",
 								"type": "text/javascript",
 								"exec": [
-									"pm.globals.set(\"city_Id\", \"11\");"
+									"// pm.globals.set(\"city_Id\", \"11\");"
 								]
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "ea7e8fa2-68d6-464a-9011-88cdf4e4bf78",
+								"id": "bbf1d710-76bf-40c5-bdfa-dc45b912b687",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -2483,7 +2548,22 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"success\");",
 									"});",
-									""
+									"",
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);",
+									"var cityData = jsonData.data;",
+									"console.log(cityData);",
+									"var i = 0, len = cityData.length;",
+									"console.log(len);",
+									"console.log(pm.globals.get(\"city_Id\"));",
+									"if (len > 0){",
+									"    if (cityData[0].name == pm.globals.get(\"city_Name\")){",
+									"        pm.globals.set(\"city_Id\", cityData[0].id);",
+									"    }",
+									"}",
+									"",
+									"console.log(pm.globals.get(\"city_Id\"));",
+									"console.log('finish!');"
 								]
 							}
 						}
@@ -2502,15 +2582,10 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://10.127.10.241:17222/geo/findCitiesByProvinceId?provinceId={{province_Id}}",
-							"protocol": "http",
+							"raw": "{{url}}/geo/findCitiesByProvinceId?provinceId={{province_Id}}",
 							"host": [
-								"10",
-								"127",
-								"10",
-								"241"
+								"{{url}}"
 							],
-							"port": "17222",
 							"path": [
 								"geo",
 								"findCitiesByProvinceId"
@@ -2533,7 +2608,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4a37b019-0ccc-4ec5-9275-673461e67650",
+								"id": "c4be608e-895e-4e8c-86bf-8a245d0c62bc",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -2548,7 +2623,22 @@
 									"pm.test(\"Body matches string\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"success\");",
 									"});",
-									""
+									"",
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);",
+									"var districtData = jsonData.data;",
+									"console.log(districtData);",
+									"var i = 0, len = districtData.length;",
+									"console.log(len);",
+									"console.log(pm.globals.get(\"district_Id\"));",
+									"if (len > 0){",
+									"    if (districtData[0].name == pm.globals.get(\"district_Name\")){",
+									"        pm.globals.set(\"district_Id\", districtData[0].id);",
+									"    }",
+									"}",
+									"",
+									"console.log(pm.globals.get(\"district_Id\"));",
+									"console.log('finish!');"
 								]
 							}
 						},
@@ -4597,7 +4687,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b34171d8-0258-4a2a-b4ce-2174077542f0",
+								"id": "b3cadffe-caf5-4f3f-8930-132ca47ee7b3",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -4615,12 +4705,10 @@
 									"",
 									"",
 									"var jsonData = pm.response.json();",
-									"console.log(pm.environment.get(\"user_Id\"));",
-									"pm.environment.set(\"user_Id\", jsonData.data.userId);",
-									"console.log(pm.environment.get(\"user_Id\"));",
-									"console.log('finish!');",
-									"",
-									""
+									"console.log(pm.globals.get(\"user_Id\"));",
+									"pm.globals.set(\"user_Id\", jsonData.data.userId);",
+									"console.log(pm.globals.get(\"user_Id\"));",
+									"console.log('finish!');"
 								]
 							}
 						}
@@ -4661,7 +4749,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cde53ced-89fd-4776-bffe-f1b3595cc6ee",
+								"id": "f6a8fec2-9491-4b0d-8153-6433313f85af",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -4670,11 +4758,11 @@
 									"",
 									"pm.test(\"Body is correct\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(5500);",
+									"    pm.expect(jsonData.code).to.eql(5503);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"用户不存在\");",
+									"    pm.expect(pm.response.text()).to.include(\"用户名或密码错误\");",
 									"});"
 								]
 							}
@@ -4716,7 +4804,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0dfc165e-664d-47ba-8563-c788cb125710",
+								"id": "af6d64be-24d5-4c9b-83dc-f9d9aa191668",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -4725,11 +4813,11 @@
 									"",
 									"pm.test(\"Body is correct\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(5506);",
+									"    pm.expect(jsonData.code).to.eql(5503);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"密码错误\");",
+									"    pm.expect(pm.response.text()).to.include(\"用户名或密码错误\");",
 									"});"
 								]
 							}
@@ -4766,12 +4854,12 @@
 					"response": []
 				},
 				{
-					"name": "密码登录-登录账号不能为空",
+					"name": "密码登录-账号不能为空",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "a4fdb620-4a33-49a0-a948-cae6fdc9d6de",
+								"id": "a964ee85-7093-418f-86e9-c4ab95a1757e",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -4780,11 +4868,11 @@
 									"",
 									"pm.test(\"Body is correct\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(5519);",
+									"    pm.expect(jsonData.code).to.eql(5503);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"登录账号不能为空,请输入账号\");",
+									"    pm.expect(pm.response.text()).to.include(\"用户名或密码错误\");",
 									"});"
 								]
 							}
@@ -4804,7 +4892,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"\",\r\n  \"password\": \"admin\"\r\n}"
+							"raw": "{\r\n  \"account\": \"\",\r\n  \"password\": \"mimacuowu\",\r\n  \"pushToken\": \"Test123\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/users/login",
@@ -4826,7 +4914,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d8aa37c2-dc62-4c23-8c96-f60bab50c344",
+								"id": "ca5491cb-5235-4a94-9136-63920f60893e",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -4835,11 +4923,11 @@
 									"",
 									"pm.test(\"Body is correct\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(5520);",
+									"    pm.expect(jsonData.code).to.eql(5503);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"密码不能为空,请输入密码\");",
+									"    pm.expect(pm.response.text()).to.include(\"用户名或密码错误\");",
 									"});"
 								]
 							}
@@ -4859,7 +4947,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"admin\",\r\n  \"password\": \"\"\r\n}"
+							"raw": "{\r\n  \"account\": \"18160038933\",\r\n  \"password\": \"\",\r\n  \"pushToken\": \"Test123\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/users/login",
@@ -5074,84 +5162,6 @@
 					"response": []
 				},
 				{
-					"name": "绑定手机号（只有微信注册且没有绑定过手机号）",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "reqVo"
-						},
-						"url": {
-							"raw": "{{url}}/users/bindingMobile?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"bindingMobile"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								},
-								{
-									"key": "lat",
-									"value": "{{lat}}"
-								},
-								{
-									"key": "lon",
-									"value": "{{lon}}"
-								},
-								{
-									"key": "os",
-									"value": "{{os}}"
-								},
-								{
-									"key": "osVersion",
-									"value": "{{osVersion}}"
-								},
-								{
-									"key": "deviceId",
-									"value": "{{deviceId}}"
-								},
-								{
-									"key": "version",
-									"value": "{{version}}"
-								},
-								{
-									"key": "userAgent",
-									"value": "{{userAgent}}"
-								},
-								{
-									"key": "apn",
-									"value": "{{apn}}"
-								},
-								{
-									"key": "sign",
-									"value": "{{sign}}"
-								},
-								{
-									"key": "partner",
-									"value": "{{partner}}"
-								}
-							]
-						},
-						"description": "@developer 林庚<br/>需要公参,用户信息"
-					},
-					"response": []
-				},
-				{
 					"name": "个人信息(返回数据和登录返回数据相同)",
 					"event": [
 						{
@@ -5216,7 +5226,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "29b8a139-d3ef-448b-8b79-834e9c5d7038",
+								"id": "444382ff-dfdb-409c-bef8-42275b8eefcc",
 								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
@@ -5225,11 +5235,11 @@
 									"",
 									"pm.test(\"Body is correct\", function () {",
 									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(5500);",
+									"    pm.expect(jsonData.code).to.eql(5503);",
 									"});",
 									"",
 									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"用户不存在\");",
+									"    pm.expect(pm.response.text()).to.include(\"用户名或密码错误\");",
 									"});",
 									"",
 									"",
@@ -5291,514 +5301,6 @@
 							]
 						},
 						"description": "@developer 林庚<br/>需要公参<br/> 返回用户信息"
-					},
-					"response": []
-				},
-				{
-					"name": "根据用户id获取银行卡信息",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e0e4a2d9-181b-46ba-87b7-06d68050fead",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Body is correct\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(0);",
-									"});",
-									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"success\");",
-									"});"
-								]
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "647b862b-6651-43e3-97f9-3839de0e5286",
-								"type": "text/javascript",
-								"exec": [
-									"userId = pm.environment.get(\"user_Id\");"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "{{url}}/users/bankcardinfo?userId={{user_Id}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"bankcardinfo"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{user_Id}}",
-									"equals": true
-								}
-							]
-						},
-						"description": "@developer 陈文樟"
-					},
-					"response": []
-				},
-				{
-					"name": "获取用户所有发票信息",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "998e3f1a-82f2-4392-880f-5833193c1227",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Body is correct\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(0);",
-									"});",
-									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"success\");",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "userId",
-								"value": "{{user_Id}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/users/invoice/getInvoice?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}&invoiceAmount={{invoiceAmount}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"invoice",
-								"getInvoice"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}",
-									"equals": true
-								},
-								{
-									"key": "lat",
-									"value": "{{lat}}",
-									"equals": true
-								},
-								{
-									"key": "lon",
-									"value": "{{lon}}",
-									"equals": true
-								},
-								{
-									"key": "os",
-									"value": "{{os}}",
-									"equals": true
-								},
-								{
-									"key": "osVersion",
-									"value": "{{osVersion}}",
-									"equals": true
-								},
-								{
-									"key": "deviceId",
-									"value": "{{deviceId}}",
-									"equals": true
-								},
-								{
-									"key": "version",
-									"value": "{{version}}",
-									"equals": true
-								},
-								{
-									"key": "userAgent",
-									"value": "{{userAgent}}",
-									"equals": true
-								},
-								{
-									"key": "apn",
-									"value": "{{apn}}",
-									"equals": true
-								},
-								{
-									"key": "sign",
-									"value": "{{sign}}",
-									"equals": true
-								},
-								{
-									"key": "partner",
-									"value": "{{partner}}",
-									"equals": true
-								},
-								{
-									"key": "invoiceAmount",
-									"value": "{{invoiceAmount}}",
-									"equals": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "查询银行码表",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "1e84c041-39aa-42b7-8bb7-2aa967426dd5",
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"pm.test(\"Body is correct\", function () {",
-									"    var jsonData = pm.response.json();",
-									"    pm.expect(jsonData.code).to.eql(0);",
-									"});",
-									"",
-									"pm.test(\"Body matches string\", function () {",
-									"    pm.expect(pm.response.text()).to.include(\"success\");",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/users/getBankCode",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"getBankCode"
-							]
-						},
-						"description": "@developer 陈文樟<br/>"
-					},
-					"response": []
-				},
-				{
-					"name": "审核银行卡",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{url}}/users/auditMemberBankCardVo?userId={{userId}}&cardholder={{cardholder}}&bankCode={{bankCode}}&cardType={{cardType}}&bank={{bank}}&mobile={{mobile}}&smsCode={{smsCode}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"auditMemberBankCardVo"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}",
-									"equals": true
-								},
-								{
-									"key": "cardholder",
-									"value": "{{cardholder}}",
-									"equals": true
-								},
-								{
-									"key": "bankCode",
-									"value": "{{bankCode}}",
-									"equals": true
-								},
-								{
-									"key": "cardType",
-									"value": "{{cardType}}",
-									"equals": true
-								},
-								{
-									"key": "bank",
-									"value": "{{bank}}",
-									"equals": true
-								},
-								{
-									"key": "mobile",
-									"value": "{{mobile}}",
-									"equals": true
-								},
-								{
-									"key": "smsCode",
-									"value": "{{smsCode}}",
-									"equals": true
-								}
-							]
-						},
-						"description": "@developer 陈文樟<br/>只需要传持卡人，卡号以及用户id"
-					},
-					"response": []
-				},
-				{
-					"name": "更新银行卡信息",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "reqVo"
-						},
-						"url": {
-							"raw": "{{url}}/users/updatebankcard?userId={{userId}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"updatebankcard"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								}
-							]
-						},
-						"description": "@developer 陈文樟<br/>传递公参<br>返回null表示失败"
-					},
-					"response": []
-				},
-				{
-					"name": "更新个人信息(性别,昵称，头像)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "reqVo"
-						},
-						"url": {
-							"raw": "{{url}}/users/updateinfo?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"updateinfo"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								},
-								{
-									"key": "lat",
-									"value": "{{lat}}"
-								},
-								{
-									"key": "lon",
-									"value": "{{lon}}"
-								},
-								{
-									"key": "os",
-									"value": "{{os}}"
-								},
-								{
-									"key": "osVersion",
-									"value": "{{osVersion}}"
-								},
-								{
-									"key": "deviceId",
-									"value": "{{deviceId}}"
-								},
-								{
-									"key": "version",
-									"value": "{{version}}"
-								},
-								{
-									"key": "userAgent",
-									"value": "{{userAgent}}"
-								},
-								{
-									"key": "apn",
-									"value": "{{apn}}"
-								},
-								{
-									"key": "sign",
-									"value": "{{sign}}"
-								},
-								{
-									"key": "partner",
-									"value": "{{partner}}"
-								}
-							]
-						},
-						"description": "@developer 林庚<br/>需要公参，用户信息"
-					},
-					"response": []
-				},
-				{
-					"name": "保存或者新增发票",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "reqVo"
-						},
-						"url": {
-							"raw": "{{url}}/users/invoice/save?userId={{userId}}&lat={{lat}}&lon={{lon}}&os={{os}}&osVersion={{osVersion}}&deviceId={{deviceId}}&version={{version}}&userAgent={{userAgent}}&apn={{apn}}&sign={{sign}}&partner={{partner}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"users",
-								"invoice",
-								"save"
-							],
-							"query": [
-								{
-									"key": "userId",
-									"value": "{{userId}}"
-								},
-								{
-									"key": "lat",
-									"value": "{{lat}}"
-								},
-								{
-									"key": "lon",
-									"value": "{{lon}}"
-								},
-								{
-									"key": "os",
-									"value": "{{os}}"
-								},
-								{
-									"key": "osVersion",
-									"value": "{{osVersion}}"
-								},
-								{
-									"key": "deviceId",
-									"value": "{{deviceId}}"
-								},
-								{
-									"key": "version",
-									"value": "{{version}}"
-								},
-								{
-									"key": "userAgent",
-									"value": "{{userAgent}}"
-								},
-								{
-									"key": "apn",
-									"value": "{{apn}}"
-								},
-								{
-									"key": "sign",
-									"value": "{{sign}}"
-								},
-								{
-									"key": "partner",
-									"value": "{{partner}}"
-								}
-							]
-						}
 					},
 					"response": []
 				},
