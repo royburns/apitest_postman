@@ -2555,10 +2555,10 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a71aa792-5d68-4e71-8069-a0c8a2964451",
+								"id": "11419723-b1e8-42a7-a353-a9893832d5a0",
 								"type": "text/javascript",
 								"exec": [
-									"pm.globals.set(\"city_Id\", \"1201;\");"
+									"pm.globals.set(\"city_Id\", \"1201\");"
 								]
 							}
 						}
@@ -4639,7 +4639,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"account\": \"18160038933\",\r\n  \"password\": \"123456\",\r\n  \"pushToken\": \"Test123\"\r\n}"
+							"raw": "{\r\n  \"account\": {{account_001}},\r\n  \"password\": {{password_001}},\r\n  \"pushToken\": \"Test123\"\r\n}"
 						},
 						"url": {
 							"raw": "{{url}}/users/login",
